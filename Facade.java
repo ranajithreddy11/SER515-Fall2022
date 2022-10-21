@@ -30,6 +30,21 @@ public class Facade {
 		}
 		if(authResult[0].equals("true")){
 			System.out.println("You are successfully logged in as "+ user+"!");
+			System.out.println("Please select your menu preference");
+			System.out.println("Enter 0 for meat products, 1 for Produce products:");
+			String productType = sc.next();
+			if (productType.equals("0")){
+				MeatProductMenu meatProd = new MeatProductMenu();
+				meatProd.showMenu();
+			}
+			else if(productType.equals("1")){
+				ProduceProductMenu prodProd = new ProduceProductMenu();
+				prodProd.showMenu();
+			}
+			else{
+				System.out.println("Option unavailable, please enter the correct option!");
+			}
+
 		}
 		else
 			System.out.println("Login failed, Please enter the correct credentials!");
