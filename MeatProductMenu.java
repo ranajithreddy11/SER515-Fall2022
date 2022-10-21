@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MeatProductMenu implements ProductMenu {
 
 	public void showMenu() throws IOException{
+		System.out.println("BRIDGE Initiated");
 		File prodInformation = new File("SER515-Fall2022/ProductInfo.txt");
 		Scanner scan = new Scanner(prodInformation);
 		System.out.println("Meat Product Menu:");
@@ -16,6 +17,7 @@ public class MeatProductMenu implements ProductMenu {
 			if(productType.equals("Meat"))
 				System.out.println(products[1]);
 		}
+		System.out.println("FACTORY Initiated");
 	}
 
 	public void showAddButton() {

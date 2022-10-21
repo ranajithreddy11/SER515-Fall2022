@@ -14,6 +14,7 @@ public class Facade {
 	private Person thePerson;
 
 	public void initializeFacade() throws IOException {
+		System.out.println("FACADE Initiated");
 		System.out.println("Please login to continue!");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the Username:");
@@ -31,7 +32,7 @@ public class Facade {
 		if(authResult[0].equals("true")){
 			System.out.println("You are successfully logged in as "+ user+"!");
 			System.out.println("Please select your menu preference");
-			System.out.println("Enter 0 for meat products, 1 for Produce products:");
+			System.out.println("Enter 0 for meat products, 1 for Produce products, 2 for viewing associated items:");
 			String productType = sc.next();
 			if (productType.equals("0")){
 				MeatProductMenu meatProd = new MeatProductMenu();
@@ -40,6 +41,10 @@ public class Facade {
 			else if(productType.equals("1")){
 				ProduceProductMenu prodProd = new ProduceProductMenu();
 				prodProd.showMenu();
+			}
+			else if(productType.equals("2")){
+				ProductIterator pIterObj = new ProductIterator();
+				pIterObj.hasNext(username);
 			}
 			else{
 				System.out.println("Option unavailable, please enter the correct option!");
