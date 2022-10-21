@@ -9,6 +9,7 @@ public class Trading {
 	}
 
 	public void bidValue( String item) throws IOException {
+		System.out.println("VISITOR Initiated");
 		File bidData = new File("SER515-Fall2022/UserProduct.txt");
 		Scanner bidObj = new Scanner(bidData);
 		int out = 0;
