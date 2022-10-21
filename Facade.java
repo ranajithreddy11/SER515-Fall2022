@@ -31,8 +31,11 @@ public class Facade {
 		}
 		if(authResult[0].equals("true")){
 			System.out.println("You are successfully logged in as "+ user+"!");
-			System.out.println("Please select your menu preference");
-			System.out.println("Enter 0 for meat products, 1 for Produce products, 2 for viewing associated items:");
+			System.out.println("Please enter 0 to display meat products\n" +
+					"1 to display Produce products:\n" +
+					"2 to display all products:\n" +
+					"3 for viewing associated items:\n" +
+					"4 to select an item to order:");
 			String productType = sc.next();
 			if (productType.equals("0")){
 				MeatProductMenu meatProd = new MeatProductMenu();
@@ -43,8 +46,18 @@ public class Facade {
 				prodProd.showMenu();
 			}
 			else if(productType.equals("2")){
+				Product allProd = new Product();
+				allProd.showMenu();
+			}
+			else if(productType.equals("3")){
 				ProductIterator pIterObj = new ProductIterator();
 				pIterObj.hasNext(username);
+			}
+			else if(productType.equals("4")){
+				System.out.println("Please enter the dish:");
+				String item = sc.next();
+				Trading trade = new Trading();
+				trade.bidValue(item);
 			}
 			else{
 				System.out.println("Option unavailable, please enter the correct option!");
